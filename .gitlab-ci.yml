@@ -1,0 +1,23 @@
+# The Docker image that will be used to build your app
+image: node:lts
+
+before_script:
+  # Functions that should be executed before the build script is run
+  - npm ci
+
+pages:
+  script:
+    # Specify the steps involved to build your app here
+    - next build
+  artifacts:
+    paths:
+      # Store the "out" folder as an artifact so Pages can serve it
+      - out
+
+  # Publish the contents of the "out" folder to the web using Pages
+  publish: out
+
+  only:
+    # Trigger a new build and deploy only when there is a push to the
+    # below branch(es)
+    - main
