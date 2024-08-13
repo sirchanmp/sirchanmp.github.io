@@ -8,7 +8,7 @@ before_script:
 pages:
   script:
     # Specify the steps involved to build your app here
-    - next build
+    - npm run build
   artifacts:
     paths:
       # Store the "out" folder as an artifact so Pages can serve it
