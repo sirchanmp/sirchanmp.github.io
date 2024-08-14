@@ -2,6 +2,11 @@
 const nextConfig = {
   output: 'export',
 
+  // Specify the path if your app is not deployed at the root of your
+  // domain. The GitLab Pages example is deployed at gitlab.pages.io/nextjs,
+  // so we specify the below basePath
+  basePath: '/nextjs',
+
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // trailingSlash: true,
 
