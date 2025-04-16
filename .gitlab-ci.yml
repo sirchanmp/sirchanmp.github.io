@@ -1,5 +1,5 @@
 # The Docker image that will be used to build your app
-image: node:lts
+image: node:22.14.0
 
 before_script:
   # Functions that should be executed before the build script is run
