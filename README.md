@@ -15,6 +15,7 @@ documentation https://docs.gitlab.com/ce/user/project/pages/.
 
 - [GitLab CI](#gitlab-ci)
 - [Building locally](#building-locally)
+- [Add base path in Next.js when unique domain is disabled](#add-base-path-in-nextjs-when-unique-domain-is-disabled)
 - [GitLab User or Group Pages](#gitlab-user-or-group-pages)
 - [Did you fork this project?](#did-you-fork-this-project)
 - [Troubleshooting](#troubleshooting)
@@ -37,7 +38,25 @@ To work locally with this project, you'll have to follow the steps below:
 1. Preview your project: `npm run dev`
 1. Add content
 
-Read more at the Next.js [documentation][https://nextjs.org/docs].
+Read more at the Next.js [documentation](https://nextjs.org/docs).
+
+## Add base path in Next.js when unique domain is disabled
+
+If you [disable the unique domain](https://docs.gitlab.com/user/project/pages/#unique-domains),
+the site will be hosted under `yourname.gitlab.io/examplerepository/`,
+you will need to configure Next.js to use the `basePath`.
+
+In `next.config.mjs`, the value for `basePath` should be your project’s name,
+starting with a forward slash - for example, `/examplerepository`.
+This ensures Next.js understands that your website’s root is `/examplerepository` instead of the default `/`,
+especially when your project is hosted at `https://gitlab.com/yourname/examplerepository/`.
+
+```js:title=next.config.mjs
+const nextConfig = {
+  basePath: '/examplerepository',
+};
+export default nextConfig;
+```
 
 ## GitLab User or Group Pages
 
