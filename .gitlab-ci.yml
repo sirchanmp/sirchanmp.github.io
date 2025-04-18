@@ -5,19 +5,15 @@ before_script:
   # Functions that should be executed before the build script is run
   - npm ci
 
-pages:
+create-pages:
+  stage: build
   script:
     # Specify the steps involved to build your app here
     - npm run build
-  artifacts:
-    paths:
-      # Store the "out" folder as an artifact so Pages can serve it
-      - out
-
-  # Publish the contents of the "out" folder to the web using Pages
-  publish: out
-
-  only:
-    # Trigger a new build and deploy only when there is a push to the
-    # below branch(es)
-    - main
+  # Specifies that this is a Pages job
+  pages:
+    # Publish the contents of the "out" folder to the web using Pages
+    publish: out
+  # Trigger rules
+  rules:
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
