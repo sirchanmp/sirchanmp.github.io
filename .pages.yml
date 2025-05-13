@@ -9,7 +9,6 @@ content:
     type: collection
     path: content/page
     view:
-      fields: [ title, draft, date ]
       fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string }
