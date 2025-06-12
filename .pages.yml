@@ -3,10 +3,14 @@ media:
   output: /assets
   categories: [ "image" ]
 content:
-  - name: posts
-    label: Posts
+  - name: pages
+    label: Pages
     type: collection
-    path: _posts
+    path: pages
+  - name: blog
+    label: Blog
+    type: collection
+    path: blog
     view:
       fields: [ coverImage, title, date ]
     fields:
