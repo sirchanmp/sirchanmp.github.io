@@ -3,6 +3,10 @@ media:
   output: /assets
   categories: [ "image" ]
 content:
+  - name: ContentManager
+    label: Admin
+    type: collection
+    path: admin
   - name: pages
     label: Pages
     type: collection
